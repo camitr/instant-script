@@ -4,7 +4,7 @@
                     
 mydate=$(date +%Y-%m-%d' '%H:%M:%S)
 echo $mydate>date.csv
- 
+hostname>source.csv
  
 # 	cd Test$(date +%d%m%y_%H_%M)
 
@@ -22,7 +22,7 @@ HostIp=$(ip addr show eth0 | grep -o 'inet [0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+' |
 # Generate Averaqge Packet per second by calcluate total packets transmit in time
 #	cat CapFileTestClient.csv | cut -d ',' -f 2 | paste -d   - > ClinetFLen.csv
    
-	echo `cat CapFileTestClient.csv | cut -d ','  -f 2 | paste -sd+| bc`/`cat CapFileTestClient.csv|wc -l` | bc -l>AvgPacketSize.csv
+	echo `cat CapFileTestClient.csv | cut -d ','  -f 2 | paste -sd+| bc`/`cat CapFileTestClient.csv|wc -l` | bc >AvgPacketSize.csv
 
 #  	awk '{sum +=$1} END {print sum / NR}' ClinetFLen.csv>AvgPacketSize.csv
 # Generate total packets tranmitted by client. 
@@ -49,7 +49,7 @@ HostIp=$(ip addr show eth0 | grep -o 'inet [0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+' |
 
         paste -d ',' TotalClientPacketDwn.csv AvgPacketSecDwn.csv AvgPacketSizeDwn.csv BwdthKbpsDwn.csv >ClientDwn.csv
 # Merging csv to obtain the final result
-	paste -d ',' date.csv ClientDwn.csv ClientUp.csv>TestAnalysis.csv
-
+	paste -d ',' date.csv source.csv ClientDwn.csv ClientUp.csv>TestAnalysis.csv
+# upload the data on mysql using python script
 	python mysqlConnect.py
 
