@@ -13,7 +13,7 @@ ssh.set_missing_host_key_policy(
 ssh.connect(hostname,username='admin',password='ttt23$')
 print "Analysing the packets......."
 stdin,stdout,stderr=\
-ssh.exec_command("./BndwithAnalysis.sh")
+ssh.exec_command("./infyloop.sh")
 type(stdin)
 out=stdout.readlines()
 print out
