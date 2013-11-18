@@ -1,11 +1,11 @@
 #!/bin/bash
+# Bash script to filter out only question flv files of AAQ
 
-for i in {1..98}
+for i in {1..130}
 do
  
  cd Session\ $i 
- touch 1
 echo "I am in session $i"
-sudo rm 1
+sudo rm Session*
 cd ../
 done 
