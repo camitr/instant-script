@@ -1,7 +1,12 @@
 #!/bin/bash
 # Bash script to filter out only question flv files of AAQ
 
-for i in {1..130}
+echo "Type start number of session"
+read startn
+echo "Type end number of session"
+read end
+
+for i in {50..89}
 do
  
  cd Session\ $i 
